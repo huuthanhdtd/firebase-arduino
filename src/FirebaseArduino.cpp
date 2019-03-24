@@ -113,7 +113,7 @@ FirebaseObject FirebaseArduino::get(const String& path) {
 int FirebaseArduino::getInt(const String& path) {
   getRequest(path);
   if (failed()) {
-    return 0;
+    return -1;
   }
   return FirebaseObject(req_.get()->response().c_str()).getInt();
 }
@@ -122,7 +122,7 @@ int FirebaseArduino::getInt(const String& path) {
 float FirebaseArduino::getFloat(const String& path) {
   getRequest(path);
   if (failed()) {
-    return 0.0f;
+    return -1.0f;
   }
   return FirebaseObject(req_.get()->response().c_str()).getFloat();
 }

@@ -48,6 +48,9 @@ void FirebaseCall::analyzeError(char* method, int status, const std::string& pat
                            std::string(method) + " " + path_with_auth +
                               ": " + http_->errorToString(status));
   }
+  else {
+    error_ = FirebaseError();
+  }
 }
 
 FirebaseCall::~FirebaseCall() {
